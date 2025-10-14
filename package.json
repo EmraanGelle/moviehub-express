@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/EmraanGelle/moviehub-express#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1"
   }
 }
