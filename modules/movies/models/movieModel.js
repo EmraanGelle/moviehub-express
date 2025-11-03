@@ -1,45 +1,15 @@
-import fs from "fs";
-const dataPath = "./data/movies.json";
+import mongoose from "mongoose";
 
-function readData() {
-  const data = fs.readFileSync(dataPath);
-  return JSON.parse(data);
-}
+const movieSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  year: { type: Number, required: true },
+  genre: { type: String, required: true },
+  director: String,
+  cast: [String],
+  rating: Number,
+  reviews: [{ user: String, comment: String, rating: Number }]
+}, { timestamps: true });
 
-function writeData(data) {
-  fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
-}
+const Movie = mongoose.model("Movie", movieSchema);
 
-export function getAllMovies() {
-  return readData();
-}
-
-export function getMovieById(id) {
-  const movies = readData();
-  return movies.find(m => m.id === id);
-}
-
-export function addNewMovie(movie) {
-  const movies = readData();
-  movies.push(movie);
-  writeData(movies);
-  return movie;
-}
-
-export function updateMovie(id, updatedData) {
-  const movies = readData();
-  const index = movies.findIndex(m => m.id === id);
-  if (index === -1) return null;
-  movies[index] = { ...movies[index], ...updatedData };
-  writeData(movies);
-  return movies[index];
-}
-
-export function deleteMovie(id) {
-  let movies = readData();
-  const initialLength = movies.length;
-  movies = movies.filter(m => m.id !== id);
-  if (movies.length === initialLength) return false;
-  writeData(movies);
-  return true;
-}
+export default Movie;
