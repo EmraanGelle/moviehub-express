@@ -10,7 +10,7 @@ const EditMovie = () => {
 
   useEffect(() => {
     getMovie(id).then(res => {
-      res.data.cast = res.data.cast.join(", "); // convert array to string for form
+      res.data.cast = res.data.cast.join(", "); 
       setInitialData(res.data);
     });
   }, [id]);
