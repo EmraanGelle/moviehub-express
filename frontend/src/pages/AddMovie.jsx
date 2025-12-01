@@ -12,7 +12,7 @@ const AddMovie = () => {
       alert("Movie added successfully!");
       navigate("/movies");
     } catch (err) {
-      alert("Error adding movie: " + err.response?.data?.message || err.message);
+      alert("Error adding movie: " + (err.response?.data?.message || err.message));
     }
   };
 

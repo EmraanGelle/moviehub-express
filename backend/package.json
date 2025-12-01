@@ -2,10 +2,10 @@
   "name": "moviehub-express",
   "version": "1.0.0",
   "description": "MovieHub Express app with MongoDB integration",
-  "main": "server.js",          
-  "type": "module",             
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js"  
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/EmraanGelle/moviehub-express#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
