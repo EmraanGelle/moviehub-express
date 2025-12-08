@@ -13,7 +13,7 @@ const EditMovie = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await axios.get(http://localhost:5000/movies/${id});
+        const res = await axios.get('http://localhost:5000/movies/${id}');
         setMovie({
           ...res.data,
           cast: res.data.cast.join(", ")
@@ -30,7 +30,7 @@ const EditMovie = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.put(http://localhost:5000/movies/${id}, {
+      await axios.put('http://localhost:5000/movies/${id}', {
         ...movie,
         year: Number(movie.year),
         rating: Number(movie.rating),
