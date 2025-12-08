@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors"; 
 import connectDB from "./modules/movies/middlewares/connect-db.js"; 
 import movieRoutes from "./modules/movies/routes/movieRoutes.js";
+import authRoutes from "./modules/users/routes/authRoutes.js"; // <-- import auth routes
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use("/api/movies", movieRoutes);
+app.use("/api/auth", authRoutes); // <-- register auth routes
 
 app.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
