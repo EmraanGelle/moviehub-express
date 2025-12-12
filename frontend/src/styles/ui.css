@@ -1,0 +1,87 @@
+/* Root variables */
+:root {
+  --bg-color: #0a0a0a;
+  --primary-color: #d4af37;
+  --text-color: #eeeeee;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --radius: 12px;
+}
+
+/* Body */
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Cinzel', serif;
+}
+
+/* Page container centers all content */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontally center children */
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* Title & subtitle */
+.cinematic-title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.cinematic-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeIn 2s 0.5s forwards;
+}
+
+/* Movie grid */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-content: center; /* centers the grid horizontally */
+  width: 100%;
+  max-width: 1200px; /* optional: limits max width */
+  padding: 0 1rem;
+}
+
+/* Movie card styling */
+.movie-card {
+  background-color: rgba(18, 18, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 0.8rem;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+.movie-card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
